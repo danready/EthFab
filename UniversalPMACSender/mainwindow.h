@@ -1,3 +1,5 @@
+//This program will be very useful to test our new Geobrick.
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -29,6 +31,7 @@ private slots:
     void on_actionConnect_triggered();
     void AppendMessageToQtextEdit(QTextEdit* MexArea, QString Message);
     void on_SendBaseCase_clicked();
+    void on_pushButton_SendStructure_clicked();
 };
 
 #endif // MAINWINDOW_H

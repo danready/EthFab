@@ -734,17 +734,8 @@ mainwindow.o: ../UniversalPMACSender/mainwindow.cpp ../UniversalPMACSender/mainw
 		/usr/include/qt5/QtGui/qinputmethod.h \
 		/usr/include/qt5/QtWidgets/QButtonGroup \
 		/usr/include/qt5/QtWidgets/qbuttongroup.h \
-		/usr/include/qt5/QtWidgets/QGridLayout \
-		/usr/include/qt5/QtWidgets/qgridlayout.h \
-		/usr/include/qt5/QtWidgets/qlayout.h \
-		/usr/include/qt5/QtWidgets/qlayoutitem.h \
-		/usr/include/qt5/QtWidgets/qboxlayout.h \
-		/usr/include/qt5/QtWidgets/QHBoxLayout \
-		/usr/include/qt5/QtWidgets/QHeaderView \
-		/usr/include/qt5/QtWidgets/qheaderview.h \
-		/usr/include/qt5/QtWidgets/qabstractitemview.h \
-		/usr/include/qt5/QtCore/qabstractitemmodel.h \
-		/usr/include/qt5/QtCore/qitemselectionmodel.h \
+		/usr/include/qt5/QtWidgets/QComboBox \
+		/usr/include/qt5/QtWidgets/qcombobox.h \
 		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
 		/usr/include/qt5/QtWidgets/qstyleoption.h \
 		/usr/include/qt5/QtWidgets/qabstractspinbox.h \
@@ -755,6 +746,19 @@ mainwindow.o: ../UniversalPMACSender/mainwindow.cpp ../UniversalPMACSender/mainw
 		/usr/include/qt5/QtWidgets/qstyle.h \
 		/usr/include/qt5/QtWidgets/qtabbar.h \
 		/usr/include/qt5/QtWidgets/qrubberband.h \
+		/usr/include/qt5/QtCore/qabstractitemmodel.h \
+		/usr/include/qt5/QtWidgets/QGridLayout \
+		/usr/include/qt5/QtWidgets/qgridlayout.h \
+		/usr/include/qt5/QtWidgets/qlayout.h \
+		/usr/include/qt5/QtWidgets/qlayoutitem.h \
+		/usr/include/qt5/QtWidgets/qboxlayout.h \
+		/usr/include/qt5/QtWidgets/QHBoxLayout \
+		/usr/include/qt5/QtWidgets/QHeaderView \
+		/usr/include/qt5/QtWidgets/qheaderview.h \
+		/usr/include/qt5/QtWidgets/qabstractitemview.h \
+		/usr/include/qt5/QtCore/qitemselectionmodel.h \
+		/usr/include/qt5/QtWidgets/QLabel \
+		/usr/include/qt5/QtWidgets/qlabel.h \
 		/usr/include/qt5/QtWidgets/QLineEdit \
 		/usr/include/qt5/QtWidgets/qlineedit.h \
 		/usr/include/qt5/QtWidgets/QMenu \

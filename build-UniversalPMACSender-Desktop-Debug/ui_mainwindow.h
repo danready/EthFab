@@ -13,9 +13,11 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
@@ -45,7 +47,21 @@ public:
     QLineEdit *lineEdit_BaseCase;
     QPushButton *SendBaseCase;
     QWidget *tab_GeneralPurpose;
+    QVBoxLayout *verticalLayout_2;
     QGridLayout *gridLayout_3;
+    QLabel *label;
+    QComboBox *comboBox_RequestType;
+    QLabel *label_2;
+    QComboBox *comboBox_Request;
+    QLabel *label_3;
+    QLineEdit *lineEdit_wValue;
+    QLabel *label_4;
+    QLineEdit *lineEdit_wIndex;
+    QLabel *label_5;
+    QLineEdit *lineEdit_wLenght;
+    QLabel *label_6;
+    QLineEdit *lineEdit_bData;
+    QPushButton *pushButton_SendStructure;
     QTextEdit *textEdit_GeneralPurpose;
     QMenuBar *menuBar;
     QMenu *menuConnect;
@@ -106,14 +122,85 @@ public:
         tabWidget->addTab(tab_BaseCase, QString());
         tab_GeneralPurpose = new QWidget();
         tab_GeneralPurpose->setObjectName(QStringLiteral("tab_GeneralPurpose"));
-        gridLayout_3 = new QGridLayout(tab_GeneralPurpose);
+        verticalLayout_2 = new QVBoxLayout(tab_GeneralPurpose);
+        verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        gridLayout_3 = new QGridLayout();
         gridLayout_3->setSpacing(6);
-        gridLayout_3->setContentsMargins(11, 11, 11, 11);
         gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
+        label = new QLabel(tab_GeneralPurpose);
+        label->setObjectName(QStringLiteral("label"));
+
+        gridLayout_3->addWidget(label, 0, 0, 1, 1);
+
+        comboBox_RequestType = new QComboBox(tab_GeneralPurpose);
+        comboBox_RequestType->setObjectName(QStringLiteral("comboBox_RequestType"));
+
+        gridLayout_3->addWidget(comboBox_RequestType, 0, 1, 1, 1);
+
+        label_2 = new QLabel(tab_GeneralPurpose);
+        label_2->setObjectName(QStringLiteral("label_2"));
+
+        gridLayout_3->addWidget(label_2, 1, 0, 1, 1);
+
+        comboBox_Request = new QComboBox(tab_GeneralPurpose);
+        comboBox_Request->setObjectName(QStringLiteral("comboBox_Request"));
+
+        gridLayout_3->addWidget(comboBox_Request, 1, 1, 1, 1);
+
+        label_3 = new QLabel(tab_GeneralPurpose);
+        label_3->setObjectName(QStringLiteral("label_3"));
+
+        gridLayout_3->addWidget(label_3, 2, 0, 1, 1);
+
+        lineEdit_wValue = new QLineEdit(tab_GeneralPurpose);
+        lineEdit_wValue->setObjectName(QStringLiteral("lineEdit_wValue"));
+
+        gridLayout_3->addWidget(lineEdit_wValue, 2, 1, 1, 1);
+
+        label_4 = new QLabel(tab_GeneralPurpose);
+        label_4->setObjectName(QStringLiteral("label_4"));
+
+        gridLayout_3->addWidget(label_4, 3, 0, 1, 1);
+
+        lineEdit_wIndex = new QLineEdit(tab_GeneralPurpose);
+        lineEdit_wIndex->setObjectName(QStringLiteral("lineEdit_wIndex"));
+
+        gridLayout_3->addWidget(lineEdit_wIndex, 3, 1, 1, 1);
+
+        label_5 = new QLabel(tab_GeneralPurpose);
+        label_5->setObjectName(QStringLiteral("label_5"));
+
+        gridLayout_3->addWidget(label_5, 4, 0, 1, 1);
+
+        lineEdit_wLenght = new QLineEdit(tab_GeneralPurpose);
+        lineEdit_wLenght->setObjectName(QStringLiteral("lineEdit_wLenght"));
+
+        gridLayout_3->addWidget(lineEdit_wLenght, 4, 1, 1, 1);
+
+        label_6 = new QLabel(tab_GeneralPurpose);
+        label_6->setObjectName(QStringLiteral("label_6"));
+
+        gridLayout_3->addWidget(label_6, 5, 0, 1, 1);
+
+        lineEdit_bData = new QLineEdit(tab_GeneralPurpose);
+        lineEdit_bData->setObjectName(QStringLiteral("lineEdit_bData"));
+
+        gridLayout_3->addWidget(lineEdit_bData, 5, 1, 1, 1);
+
+
+        verticalLayout_2->addLayout(gridLayout_3);
+
+        pushButton_SendStructure = new QPushButton(tab_GeneralPurpose);
+        pushButton_SendStructure->setObjectName(QStringLiteral("pushButton_SendStructure"));
+
+        verticalLayout_2->addWidget(pushButton_SendStructure);
+
         textEdit_GeneralPurpose = new QTextEdit(tab_GeneralPurpose);
         textEdit_GeneralPurpose->setObjectName(QStringLiteral("textEdit_GeneralPurpose"));
 
-        gridLayout_3->addWidget(textEdit_GeneralPurpose, 0, 0, 1, 1);
+        verticalLayout_2->addWidget(textEdit_GeneralPurpose);
 
         tabWidget->addTab(tab_GeneralPurpose, QString());
 
@@ -150,6 +237,13 @@ public:
         actionConnect->setText(QApplication::translate("MainWindow", "Connect...", 0));
         SendBaseCase->setText(QApplication::translate("MainWindow", "Send", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_BaseCase), QApplication::translate("MainWindow", "Base Case", 0));
+        label->setText(QApplication::translate("MainWindow", "RequestType", 0));
+        label_2->setText(QApplication::translate("MainWindow", "Request", 0));
+        label_3->setText(QApplication::translate("MainWindow", "wValue", 0));
+        label_4->setText(QApplication::translate("MainWindow", "wIndex", 0));
+        label_5->setText(QApplication::translate("MainWindow", "wLength", 0));
+        label_6->setText(QApplication::translate("MainWindow", "bData", 0));
+        pushButton_SendStructure->setText(QApplication::translate("MainWindow", "Send Structure", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_GeneralPurpose), QApplication::translate("MainWindow", "General Purpose Structure", 0));
         menuConnect->setTitle(QApplication::translate("MainWindow", "Connect", 0));
     } // retranslateUi
