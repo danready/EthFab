@@ -8,8 +8,12 @@
 /*
  * General definitions.
  */
-#define GEOBRICK_IP "192.168.10.4"
-#define GEOBRICK_PORT 1025
+//#define GEOBRICK_IP "192.168.10.4"
+//#define GEOBRICK_PORT 1025
+
+#define GEOBRICK_IP "127.0.0.1"
+#define GEOBRICK_PORT 1112
+
 
 /*
  * Definition for Simple Case
@@ -164,7 +168,7 @@ void MainWindow::on_SendBaseCase_clicked()
 
     //fprintf(stderr, "Computated: %u\n", EthCmd.wLength);
 
-    QByteArray data((char *)&EthCmd); // <-- fill with data
+    QByteArray data((char *)&EthCmd, ETHERNETCMDSIZE + strlen(cCommand)); // <-- fill with data
     _pSocket->write( data );
 
 }
@@ -232,7 +236,7 @@ void MainWindow::on_pushButton_SendStructure_clicked()
 
     //fprintf(stderr, "Command: %s\n", cCommand);
 
-    QByteArray data((char *)&EthCmd); // <-- fill with data
+    QByteArray data((char *)&EthCmd, ETHERNETCMDSIZE + strlen(cCommand)); // <-- fill with data
 
     _pSocket->write( data );
 
