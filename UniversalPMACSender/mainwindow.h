@@ -32,6 +32,8 @@ private slots:
     void AppendMessageToQtextEdit(QTextEdit* MexArea, QString Message);
     void on_SendBaseCase_clicked();
     void on_pushButton_SendStructure_clicked();
+    void on_actionDeltaTau_PMAC_Geobrick_2_triggered();
+    void on_actionTest_LocalHost_triggered();
 };
 
 #endif // MAINWINDOW_H

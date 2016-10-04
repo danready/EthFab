@@ -8,11 +8,14 @@
 /*
  * General definitions.
  */
-//#define GEOBRICK_IP "192.168.10.4"
-//#define GEOBRICK_PORT 1025
+#define GEOBRICK_IP_1 "192.168.10.3"
+#define GEOBRICK_PORT_1 1025
 
-#define GEOBRICK_IP "127.0.0.1"
-#define GEOBRICK_PORT 1112
+#define GEOBRICK_IP_2 "192.168.10.4"
+#define GEOBRICK_PORT_2 1025
+
+#define GEOBRICK_IP_LOCAL "127.0.0.1"
+#define GEOBRICK_PORT_LOCAL 1112
 
 
 /*
@@ -101,9 +104,20 @@ void MainWindow::Errore(QAbstractSocket::SocketError sock_error)
 //This methods analyze the input sent to this GUI from the server
 void MainWindow::readTcpData()
 {
+    int i = 0;
+
     QByteArray data = _pSocket->readAll();
 
-    QString data_string(data);
+    //QString data_string(data);
+    //you have to deep copy the QByteArray character by character because the received
+    //string could content a termination character '\0' inside it.
+
+    QString data_string;
+
+    for (i = 0; i < data.size(); i++)
+    {
+        data_string += data.data()[i];
+    }
 
     AppendMessageToQtextEdit(ui->textEdit_BaseCase, data_string);
 
@@ -112,26 +126,6 @@ void MainWindow::readTcpData()
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-void MainWindow::on_actionConnect_triggered()
-{
-    //main_window_log_file->LogFileExpertGUI_WriteOnLogFile("Connect to CollSoft server command clicked.");
-
-    _pSocket->connectToHost(GEOBRICK_IP, (quint16)GEOBRICK_PORT);
-
-    if( _pSocket->waitForConnected(1000) ) {
-
-       AppendMessageToQtextEdit(ui->textEdit_BaseCase, "Connection to GeoBrick Okay");
-       AppendMessageToQtextEdit(ui->textEdit_GeneralPurpose, "Connection to GeoBrick Okay");
-
-    } else {
-
-       AppendMessageToQtextEdit(ui->textEdit_BaseCase, "Connection to GeoBrick Failed");
-       AppendMessageToQtextEdit(ui->textEdit_GeneralPurpose, "Connection to GeoBrick Failed");
-
-    }
-
 }
 
 void MainWindow::AppendMessageToQtextEdit(QTextEdit* MexArea, QString Message)
@@ -240,4 +234,78 @@ void MainWindow::on_pushButton_SendStructure_clicked()
 
     _pSocket->write( data );
 
+}
+
+void MainWindow::on_actionConnect_triggered()
+{
+    //main_window_log_file->LogFileExpertGUI_WriteOnLogFile("Connect to CollSoft server command clicked.");
+
+    if(_pSocket->state() != QAbstractSocket::UnconnectedState)
+    {
+        _pSocket->disconnectFromHost();
+    }
+
+    _pSocket->connectToHost(GEOBRICK_IP_1, (quint16)GEOBRICK_PORT_1);
+
+    if( _pSocket->waitForConnected(2000) ) {
+
+       AppendMessageToQtextEdit(ui->textEdit_BaseCase, "Connection to GeoBrick 1 Okay");
+       AppendMessageToQtextEdit(ui->textEdit_GeneralPurpose, "Connection to GeoBrick 1 Okay");
+
+    } else {
+
+       AppendMessageToQtextEdit(ui->textEdit_BaseCase, "Connection to GeoBrick 1 Failed");
+       AppendMessageToQtextEdit(ui->textEdit_GeneralPurpose, "Connection to GeoBrick 1 Failed");
+
+    }
+
+}
+
+
+void MainWindow::on_actionDeltaTau_PMAC_Geobrick_2_triggered()
+{
+    //main_window_log_file->LogFileExpertGUI_WriteOnLogFile("Connect to CollSoft server command clicked.");
+
+    if(_pSocket->state() != QAbstractSocket::UnconnectedState)
+    {
+        _pSocket->disconnectFromHost();
+    }
+
+    _pSocket->connectToHost(GEOBRICK_IP_2, (quint16)GEOBRICK_PORT_2);
+
+    if( _pSocket->waitForConnected(2000) ) {
+
+       AppendMessageToQtextEdit(ui->textEdit_BaseCase, "Connection to GeoBrick 2 Okay");
+       AppendMessageToQtextEdit(ui->textEdit_GeneralPurpose, "Connection to GeoBrick 2 Okay");
+
+    } else {
+
+       AppendMessageToQtextEdit(ui->textEdit_BaseCase, "Connection to GeoBrick 2 Failed");
+       AppendMessageToQtextEdit(ui->textEdit_GeneralPurpose, "Connection to GeoBrick 2 Failed");
+
+    }
+}
+
+void MainWindow::on_actionTest_LocalHost_triggered()
+{
+    //main_window_log_file->LogFileExpertGUI_WriteOnLogFile("Connect to CollSoft server command clicked.");
+
+    if(_pSocket->state() != QAbstractSocket::UnconnectedState)
+    {
+        _pSocket->disconnectFromHost();
+    }
+
+    _pSocket->connectToHost(GEOBRICK_IP_LOCAL, (quint16)GEOBRICK_PORT_LOCAL);
+
+    if( _pSocket->waitForConnected(2000) ) {
+
+       AppendMessageToQtextEdit(ui->textEdit_BaseCase, "Connection to Local Host Okay");
+       AppendMessageToQtextEdit(ui->textEdit_GeneralPurpose, "Connection to Local Host Okay");
+
+    } else {
+
+       AppendMessageToQtextEdit(ui->textEdit_BaseCase, "Connection to Local Host Failed");
+       AppendMessageToQtextEdit(ui->textEdit_GeneralPurpose, "Connection to Local Host Failed");
+
+    }
 }

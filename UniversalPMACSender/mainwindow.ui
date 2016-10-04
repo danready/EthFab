@@ -151,6 +151,8 @@
      <string>Connect</string>
     </property>
     <addaction name="actionConnect"/>
+    <addaction name="actionDeltaTau_PMAC_Geobrick_2"/>
+    <addaction name="actionTest_LocalHost"/>
    </widget>
    <addaction name="menuConnect"/>
   </widget>
@@ -165,7 +167,17 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionConnect">
    <property name="text">
-    <string>Connect...</string>
+    <string>DeltaTau PMAC Geobrick 1</string>
+   </property>
+  </action>
+  <action name="actionDeltaTau_PMAC_Geobrick_2">
+   <property name="text">
+    <string>DeltaTau PMAC Geobrick 2</string>
+   </property>
+  </action>
+  <action name="actionTest_LocalHost">
+   <property name="text">
+    <string>Test LocalHost</string>
    </property>
   </action>
  </widget>

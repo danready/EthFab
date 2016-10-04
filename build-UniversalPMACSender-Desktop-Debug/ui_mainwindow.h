@@ -36,6 +36,8 @@ class Ui_MainWindow
 {
 public:
     QAction *actionConnect;
+    QAction *actionDeltaTau_PMAC_Geobrick_2;
+    QAction *actionTest_LocalHost;
     QWidget *centralWidget;
     QGridLayout *gridLayout;
     QTabWidget *tabWidget;
@@ -78,6 +80,10 @@ public:
         MainWindow->setWindowIcon(icon);
         actionConnect = new QAction(MainWindow);
         actionConnect->setObjectName(QStringLiteral("actionConnect"));
+        actionDeltaTau_PMAC_Geobrick_2 = new QAction(MainWindow);
+        actionDeltaTau_PMAC_Geobrick_2->setObjectName(QStringLiteral("actionDeltaTau_PMAC_Geobrick_2"));
+        actionTest_LocalHost = new QAction(MainWindow);
+        actionTest_LocalHost->setObjectName(QStringLiteral("actionTest_LocalHost"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         gridLayout = new QGridLayout(centralWidget);
@@ -222,6 +228,8 @@ public:
 
         menuBar->addAction(menuConnect->menuAction());
         menuConnect->addAction(actionConnect);
+        menuConnect->addAction(actionDeltaTau_PMAC_Geobrick_2);
+        menuConnect->addAction(actionTest_LocalHost);
 
         retranslateUi(MainWindow);
 
@@ -234,7 +242,9 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "EthFab", 0));
-        actionConnect->setText(QApplication::translate("MainWindow", "Connect...", 0));
+        actionConnect->setText(QApplication::translate("MainWindow", "DeltaTau PMAC Geobrick 1", 0));
+        actionDeltaTau_PMAC_Geobrick_2->setText(QApplication::translate("MainWindow", "DeltaTau PMAC Geobrick 2", 0));
+        actionTest_LocalHost->setText(QApplication::translate("MainWindow", "Test LocalHost", 0));
         SendBaseCase->setText(QApplication::translate("MainWindow", "Send", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_BaseCase), QApplication::translate("MainWindow", "Base Case", 0));
         label->setText(QApplication::translate("MainWindow", "RequestType", 0));

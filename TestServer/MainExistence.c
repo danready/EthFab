@@ -33,6 +33,8 @@
 #include <sys/wait.h>
 #include <string.h>
 #include <sys/prctl.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
 
 using namespace std;
 
@@ -188,6 +190,7 @@ int main ()
 				//~ }
 			}
 			
+			//send(command_received_by_user.user_sockid,"END OF \0MESSAGE\n", 16 ,0);
 			output_module->Output("END OF MESSAGE\n");						
 		}
 	}
