@@ -147,7 +147,7 @@ void MainWindow::on_SendBaseCase_clicked()
     ETHERNETCMD EthCmd;
     char cCommand[256];
 
-    AppendMessageToQtextEdit(ui->textEdit_BaseCase, "Command sent...");
+    AppendMessageToQtextEdit(ui->textEdit_BaseCase, "Command sent: " + ui->lineEdit_BaseCase->text());
 
     EthCmd.RequestType = VR_DOWNLOAD;
     EthCmd.Request     = VR_PMAC_GETRESPONSE;
