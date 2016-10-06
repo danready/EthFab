@@ -494,7 +494,7 @@ void MainWindow::readTcpData()
 
         QString data_string(data);
 
-        AppendMessageToQtextEdit(ui->textEdit_BaseCase, "Decodifico");
+        //AppendMessageToQtextEdit(ui->textEdit_BaseCase, "Decodifico");
 
         vector<int> decode_array;
 
@@ -510,6 +510,11 @@ void MainWindow::readTcpData()
         {
             //cout << "Errore al motore: " <<  dec << decode_array_reference[i] << endl;
             HumanReadableError(decode_array_reference[i]);
+        }
+
+        if (decode_array_reference.size() == 0)
+        {
+            AppendMessageToQtextEdit(ui->textEdit_BaseCase, "No error detected");
         }
 
         decoding_error == false;
