@@ -191,7 +191,7 @@ int main ()
 			}
 			
 			//send(command_received_by_user.user_sockid,"END OF \0MESSAGE\n", 16 ,0);
-			output_module->Output("END OF MESSAGE\n");						
+			output_module->Output("1056964608");						
 		}
 	}
 }

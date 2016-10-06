@@ -6,6 +6,9 @@
 #include <QMainWindow>
 #include <QTextEdit>
 #include <QTcpSocket>
+#include <vector>
+
+
 
 namespace Ui {
 class MainWindow;
@@ -25,6 +28,8 @@ private:
     //Socket to communicate with CollSoft server
     QTcpSocket* _pSocket;
 
+    bool decoding_error;
+
 private slots:
     void readTcpData();
     void Errore(QAbstractSocket::SocketError sock_error);
@@ -34,6 +39,10 @@ private slots:
     void on_pushButton_SendStructure_clicked();
     void on_actionDeltaTau_PMAC_Geobrick_2_triggered();
     void on_actionTest_LocalHost_triggered();
+    void HumanReadableError (int error_code);
+    void DecodeErrors ( std::vector<int>& decode_array, unsigned int converting_number );
+    void DecodeSum ( std::vector<int>& decode_array, unsigned int converting_sum, int table_pointer );
+    void PartialDecoding (std::vector<int>& tmp_vector_reference, int converting_sum);
 };
 
 #endif // MAINWINDOW_H
