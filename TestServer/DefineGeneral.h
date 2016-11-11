@@ -23,7 +23,7 @@
 #define SERVER_IP	"127.0.0.1"
 
 //SERVER_PORT defines the port number of this application
-#define SERVER_PORT 1112
+#define SERVER_PORT 1025
 
 //STANDARDBUFFERLIMIT defines the length of the arrays used to general operation, like the buffer one in the MainExistence.c file 
 #define STANDARDBUFFERLIMIT 5000
